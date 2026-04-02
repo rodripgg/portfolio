@@ -8,7 +8,8 @@ export function About() {
       <Container>
         <SectionTitle
           eyebrow="Sobre mí"
-          title="Desarrollo software web con foco en estructura, mantenibilidad y claridad"
+          title="Perfil profesional"
+          subtitle={portfolioData.summary}
         />
 
         <div className="content-card">

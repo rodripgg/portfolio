@@ -6,10 +6,7 @@ export function Projects() {
   return (
     <section id="projects" className="section">
       <Container>
-        <SectionTitle
-          eyebrow="Proyectos"
-          title="Algunos trabajos y desarrollos destacados"
-        />
+        <SectionTitle eyebrow="Proyectos" title="Proyectos y emprendimientos" />
 
         <div className="projects-grid">
           {portfolioData.projects.map((project) => (

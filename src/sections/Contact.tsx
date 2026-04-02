@@ -8,8 +8,8 @@ export function Contact() {
       <Container>
         <SectionTitle
           eyebrow="Contacto"
-          title="¿Hablamos?"
-          subtitle="Puedes escribirme o revisar mis perfiles profesionales."
+          title="Información de contacto"
+          subtitle="Puedes escribirme por correo o revisar mis perfiles."
         />
 
         <div className="content-card">
