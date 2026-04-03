@@ -9,7 +9,6 @@ export function About() {
         <SectionTitle
           eyebrow="Sobre mí"
           title="Perfil profesional"
-          subtitle={portfolioData.summary}
         />
 
         <div className="content-card">
