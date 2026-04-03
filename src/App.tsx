@@ -15,7 +15,7 @@ function App() {
         <Container>
           <div className="site-header__inner">
             <a href="#home" className="site-logo">
-              rodripgg
+              *logo*
             </a>
 
             <nav className="site-nav" aria-label="Navegación principal">
