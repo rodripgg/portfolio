@@ -12,9 +12,6 @@ export function Hero() {
             {portfolioData.name}
             <span>{portfolioData.role}</span>
           </h1>
-
-          <p className="hero__summary">{portfolioData.summary}</p>
-
           <div className="hero__actions">
             <a className="button button--primary" href="#projects">
               Ver proyectos
