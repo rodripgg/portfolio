@@ -22,22 +22,41 @@ function getInitialTheme(): ThemeMode {
 
 function App() {
   const [theme, setTheme] = useState<ThemeMode>(getInitialTheme);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     window.localStorage.setItem("portfolio-theme", theme);
   }, [theme]);
 
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth > 768) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  const handleNavClick = () => {
+    setMobileMenuOpen(false);
+  };
+
   return (
     <div className="app-shell">
       <header className="site-header">
         <Container>
           <div className="site-header__inner">
-            <a href="#home" className="site-logo">
+            <a href="#home" className="site-logo" onClick={handleNavClick}>
               *logo*
             </a>
 
-            <nav className="site-nav" aria-label="Navegación principal">
+            <nav
+              className="site-nav site-nav--desktop"
+              aria-label="Navegación principal"
+            >
               <a href="#about">Sobre mí</a>
               <a href="#experience">Experiencia</a>
               <a href="#skills">Skills</a>
@@ -46,7 +65,53 @@ function App() {
               <a href="#contact">Contacto</a>
             </nav>
 
-            <ThemeToggle theme={theme} onChange={setTheme} />
+            <div className="site-header__controls">
+              <ThemeToggle theme={theme} onChange={setTheme} />
+
+              <button
+                type="button"
+                className={`mobile-menu-toggle ${mobileMenuOpen ? "is-open" : ""}`}
+                aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-navigation"
+                onClick={() => setMobileMenuOpen((prev) => !prev)}
+              >
+                <span />
+                <span />
+                <span />
+              </button>
+            </div>
+
+            <div
+              id="mobile-navigation"
+              className={`mobile-menu ${mobileMenuOpen ? "is-open" : ""}`}
+            >
+              <div className="mobile-menu__panel">
+                <nav
+                  className="site-nav site-nav--mobile"
+                  aria-label="Navegación móvil"
+                >
+                  <a href="#about" onClick={handleNavClick}>
+                    Sobre mí
+                  </a>
+                  <a href="#experience" onClick={handleNavClick}>
+                    Experiencia
+                  </a>
+                  <a href="#skills" onClick={handleNavClick}>
+                    Skills
+                  </a>
+                  <a href="#projects" onClick={handleNavClick}>
+                    Proyectos
+                  </a>
+                  <a href="#education" onClick={handleNavClick}>
+                    Formación
+                  </a>
+                  <a href="#contact" onClick={handleNavClick}>
+                    Contacto
+                  </a>
+                </nav>
+              </div>
+            </div>
           </div>
         </Container>
       </header>
@@ -80,6 +145,7 @@ function App() {
           <Contact />
         </Reveal>
       </main>
+
       <Footer />
     </div>
   );
