@@ -45,7 +45,6 @@ export interface PortfolioData {
   linkedin?: string;
   github?: string;
   cvUrl: string;
-  summary: string;
   about: string[];
   technicalSkills: string[];
   softSkills: string[];
