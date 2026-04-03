@@ -1,0 +1,61 @@
+version: "3"
+
+vars:
+  IMAGE_NAME: portfolio
+  PORT: 8080
+
+tasks:
+  install:
+    desc: Instala dependencias
+    cmds:
+      - npm install
+
+  dev:
+    desc: Levanta Vite en desarrollo
+    cmds:
+      - npm run dev
+
+  build:
+    desc: Compila el proyecto
+    cmds:
+      - npm run build
+
+  lint:
+    desc: Ejecuta ESLint
+    cmds:
+      - npm run lint
+
+  preview:
+    desc: Previsualiza el build localmente
+    cmds:
+      - npm run preview -- --host 0.0.0.0
+
+  docker:build:
+    desc: Construye la imagen Docker de producción
+    cmds:
+      - docker build -t {{.IMAGE_NAME}}:latest .
+
+  docker:run:
+    desc: Ejecuta la imagen Docker de producción
+    deps: [docker:build]
+    cmds:
+      - docker run --rm -p {{.PORT}}:80 {{.IMAGE_NAME}}:latest
+
+  docker:up:
+    desc: Levanta el contenedor con Docker Compose
+    cmds:
+      - docker compose up --build
+
+  docker:down:
+    desc: Baja el stack de Docker Compose
+    cmds:
+      - docker compose down
+
+
+#### comandos ####
+#  task dev
+#  task build
+#  task lint
+#  task docker:build
+#  task docker:up
+#  task docker:down
