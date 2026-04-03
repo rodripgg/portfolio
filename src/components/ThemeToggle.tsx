@@ -1,4 +1,4 @@
-type ThemeMode = "matrix" | "sunset";
+type ThemeMode = 'matrix' | 'sunset';
 
 interface ThemeToggleProps {
   theme: ThemeMode;
@@ -7,23 +7,29 @@ interface ThemeToggleProps {
 
 export function ThemeToggle({ theme, onChange }: ThemeToggleProps) {
   return (
-    <div className="theme-switcher" role="group" aria-label="Selector de tema">
+    <div
+      className={`theme-switcher theme-switcher--${theme}`}
+      role="group"
+      aria-label="Selector de tema"
+    >
+      <span className="theme-switcher__thumb" aria-hidden="true" />
+
       <button
         type="button"
-        className={`theme-option ${theme === "matrix" ? "is-active" : ""}`}
-        onClick={() => onChange("matrix")}
-        aria-pressed={theme === "matrix"}
+        className={`theme-option ${theme === 'matrix' ? 'is-active' : ''}`}
+        onClick={() => onChange('matrix')}
+        aria-pressed={theme === 'matrix'}
       >
-        Noche / Matrix
+        Noche
       </button>
 
       <button
         type="button"
-        className={`theme-option ${theme === "sunset" ? "is-active" : ""}`}
-        onClick={() => onChange("sunset")}
-        aria-pressed={theme === "sunset"}
+        className={`theme-option ${theme === 'sunset' ? 'is-active' : ''}`}
+        onClick={() => onChange('sunset')}
+        aria-pressed={theme === 'sunset'}
       >
-        Día / Sunset
+        Día
       </button>
     </div>
   );
