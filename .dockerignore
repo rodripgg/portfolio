@@ -1,0 +1,8 @@
+node_modules
+dist
+.git
+.vscode
+Dockerfile
+compose.yaml
+Taskfile.yml
+npm-debug.log*
