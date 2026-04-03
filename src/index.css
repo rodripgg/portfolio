@@ -409,3 +409,27 @@ textarea {
     white-space: normal;
   }
 }
+
+.hero__summary,
+.section-subtitle,
+.content-card p,
+.project-card p,
+.timeline-card p,
+.stack-list__item p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  text-wrap: pretty;
+}
+
+@media (max-width: 768px) {
+  .hero__summary,
+  .section-subtitle,
+  .content-card p,
+  .project-card p,
+  .timeline-card p,
+  .stack-list__item p {
+    text-align: left;
+    hyphens: none;
+  }
+}
