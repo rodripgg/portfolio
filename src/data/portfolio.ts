@@ -7,6 +7,7 @@ export const portfolioData: PortfolioData = {
   email: "rodrigoparra08@gmail.com",
   linkedin: "https://linkedin.com/in/rodrigo-parra",
   github: "https://github.com/rodripgg",
+  instagram: "https://www.instagram.com/rodripg08/",
   cvUrl: "/cv.pdf",
 
   about: [
@@ -56,6 +57,10 @@ export const portfolioData: PortfolioData = {
     {
       label: "LinkedIn",
       href: "https://linkedin.com/in/rodrigo-parra",
+    },
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/rodripg08/",
     },
   ],
 

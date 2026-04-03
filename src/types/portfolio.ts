@@ -44,6 +44,7 @@ export interface PortfolioData {
   phone?: string;
   linkedin?: string;
   github?: string;
+  instagram?: string;
   cvUrl: string;
   about: string[];
   technicalSkills: string[];
