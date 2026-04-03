@@ -54,7 +54,7 @@
 
 :root[data-theme="sunset"] {
   --bg: #f37cb5;
-  --bg-soft: #b8d6e7;
+  --bg-soft: #d5e5ee;
   --surface: rgba(255, 233, 244, 0.72);
   --surface-strong: rgba(255, 242, 248, 0.88);
   --border: rgba(255, 88, 172, 0.24);
@@ -188,7 +188,7 @@ section[id] {
   background: linear-gradient(
     180deg,
     color-mix(in srgb, var(--bg) 88%, transparent),
-    color-mix(in srgb, var(--bg-soft) 82%, transparent)
+    color-mix(in srgb, var(--bg-soft) 80%, transparent)
   );
   backdrop-filter: blur(var(--blur));
   transition:
